@@ -1020,7 +1020,7 @@ static void run_flush_case(
 
 TEST(D5bLargeDim, DirectL2ParityPastOldWrap) {
     // q=255, code=0: 65025 per dim. 33026 chunks push a per-lane signed
-    // i32 accumulator past 2^31 (33026*65025 = 2,147,565,650).
+    // i32 accumulator past 2^31 (33026*65025 = 2,147,515,650).
     run_flush_case(
             SQ::QT_8bit_direct,
             METRIC_L2,

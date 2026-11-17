@@ -35,7 +35,7 @@
 namespace faiss {
 namespace gpu {
 
-// 64 bytes containing 4 half (float16) values
+// 8 bytes containing 4 half (float16) values
 struct Half4 {
     half2 a;
     half2 b;
@@ -70,7 +70,7 @@ inline __device__ Half4 float4ToHalf4(float4 v) {
     return out;
 }
 
-// 128 bytes containing 8 half (float16) values
+// 16 bytes containing 8 half (float16) values
 struct Half8 {
     Half4 a;
     Half4 b;

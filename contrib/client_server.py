@@ -22,7 +22,7 @@ class SearchServer(rpc.Server):
         self.index = index
         self.index_ivf = faiss.extract_index_ivf(index)
 
-    def set_nprobe(self, nprobe: int) -> int:
+    def set_nprobe(self, nprobe: int) -> None:
         """set nprobe field"""
         self.index_ivf.nprobe = nprobe
 
@@ -68,7 +68,7 @@ class ClientIndex:
     def set_omp_num_threads(self, nt: int) -> None:
         self.pool.map(lambda idx: idx.set_omp_num_threads(nt), self.sub_indexes)
 
-    def get_ntotal(self) -> None:
+    def get_ntotal(self) -> int:
         return sum(
             self.pool.map(lambda idx: idx.get_ntotal(), self.sub_indexes)
         )

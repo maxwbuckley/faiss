@@ -58,7 +58,7 @@ constexpr size_t k8GiBTempMem = (size_t)1024 * 1024 * 1024;
 constexpr size_t kMaxTempMem = (size_t)1536 * 1024 * 1024;
 
 std::string allocsToString(const std::unordered_map<void*, AllocRequest>& map) {
-    // Produce a sorted list of all outstanding allocations by type
+    // Summarize all outstanding allocations by type (in no particular order)
     std::unordered_map<AllocType, std::pair<int, size_t>> stats;
 
     for (auto& entry : map) {

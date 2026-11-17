@@ -88,7 +88,7 @@ struct IVFPQBuildCagraConfig {
     /// The dimensionality of the vector after compression by PQ. When zero, an
     /// optimal value is selected using a heuristic.
     ///
-    /// NB: `pq_dim  /// pq_bits` must be a multiple of 8.
+    /// NB: `pq_dim * pq_bits` must be a multiple of 8.
     ///
     /// Hint: a smaller 'pq_dim' results in a smaller index size and better
     /// search performance, but lower recall. If 'pq_bits' is 8, 'pq_dim' can be

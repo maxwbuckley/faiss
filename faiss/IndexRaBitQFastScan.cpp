@@ -515,7 +515,7 @@ void IndexRaBitQFastScan::search(
     // The kernel applies the selector after each SIMD block.
     const IDSelector* rabitq_sel = params ? params->sel : nullptr;
 
-    // Create query factors array on stack - memory managed by caller
+    // Query factors, one entry per query, owned by this function
     std::vector<rabitq_utils::QueryFactorsData> query_factors_storage(n);
 
     // Use the faster search_dispatch_implem flow from IndexFastScan

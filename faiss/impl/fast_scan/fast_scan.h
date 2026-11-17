@@ -36,10 +36,11 @@ struct SIMDResultHandlerToFloat;
  *
  * @param codes   input codes, size (ntotal, ceil(M / 2))
  * @param ntotal  number of input codes
+ * @param M       number of sub-quantizers in the input codes
  * @param nb      output number of codes (ntotal rounded up to a multiple of
  *                bbs)
- * @param nsq      number of sub-quantizers (=M rounded up to a multiple of 2)
  * @param bbs     size of database blocks (multiple of 32)
+ * @param nsq     number of sub-quantizers (=M rounded up to a multiple of 2)
  * @param blocks  output array, size nb * nsq / 2.
  * @param code_stride  optional stride between consecutive codes (0 = use
 default (M + 1) / 2)

@@ -198,17 +198,17 @@ struct DefaultShardingFunction : ShardingFunction {
 
 /**
  * Shards an IVF index centroids by the given sharding function, and writes
- * the index to the path given by filename_generator. The centroids must already
+ * each shard to the path given by filename_template. The centroids must already
  * be added to the index quantizer.
  *
  * @param index             The IVF index containing centroids to shard.
  * @param shard_count       Number of shards.
- * @param filename_template Template for shard filenames.
+ * @param filename_template Template for shard filenames, formatted with the
+ *                          shard number (e.g. "shard.%d.index").
  * @param sharding_function The function to shard by. The default is ith vector
  *                          mod shard_count.
  * @param generate_ids      Generates ids using IndexIDMap2. If true, ids will
  *                          match the default ids in the unsharded index.
- * @return                  The number of shards written.
  */
 void shard_ivf_index_centroids(
         IndexIVF* index,

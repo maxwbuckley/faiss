@@ -16,7 +16,7 @@ xq = np.random.random((nq, d)).astype("float32")
 xq[:, 0] += np.arange(nq) / 1000.0
 
 m = 8  # 8 specifies that the number of sub-vector is 8
-k = 4  # number of dimension in extracted vector
+k = 4  # number of nearest neighbors to retrieve
 n_bit = 4  # 4 specifies that each sub-vector is encoded as 4 bits
 bbs = 32  # build block size ( bbs % 32 == 0 ) for PQ
 

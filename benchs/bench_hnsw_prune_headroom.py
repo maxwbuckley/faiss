@@ -7,9 +7,8 @@
 Benchmark script for testing HNSW prune_headroom recall impact.
 
 Compares recall and build time between different prune_headroom values.
-Default comparison is between:
-- Baseline: prune_headroom = 0.0 (original behavior, no headroom)
-- With headroom: prune_headroom = 0.2 (proposed default)
+By default it compares prune_headroom = 0.0 (original behavior, no headroom)
+with 0.04, 0.08, 0.12, 0.16 and 0.20.
 
 Usage:
     python bench_hnsw_prune_headroom.py
@@ -206,7 +205,10 @@ if __name__ == "__main__":
         type=float,
         nargs="+",
         default=[0.0, 0.04, 0.08, 0.12, 0.16, 0.20],
-        help="prune_headroom values to compare (default: 0.0 0.2)",
+        help=(
+            "prune_headroom values to compare "
+            "(default: 0.0 0.04 0.08 0.12 0.16 0.20)"
+        ),
     )
     parser.add_argument(
         "--reps",

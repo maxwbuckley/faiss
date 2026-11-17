@@ -137,8 +137,10 @@ int faiss_IndexBinary_range_search(
  *
  * This function is identical as search but only return labels of neighbors.
  * @param index       opaque pointer to index object
+ * @param n           number of query vectors
  * @param x           input vectors to search, size n * d
  * @param labels      output labels of the NNs, size n*k
+ * @param k           number of nearest neighbors to return
  */
 int faiss_IndexBinary_assign(
         FaissIndexBinary* index,
@@ -154,7 +156,8 @@ int faiss_IndexBinary_reset(FaissIndexBinary* index);
 
 /** removes IDs from the index. Not supported by all indexes
  * @param index       opaque pointer to index object
- * @param nremove     output for the number of IDs removed
+ * @param sel         selector of the IDs to remove
+ * @param n_removed   output for the number of IDs removed
  */
 int faiss_IndexBinary_remove_ids(
         FaissIndexBinary* index,

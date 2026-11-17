@@ -7,7 +7,8 @@
 
 /**
  * Checks that DD routes AVX2 to real AVX2 code: fvec_inner_products_ny at d=8
- * (8x8 transpose kernel) must beat NONE, and at d=128 must not be slower.
+ * (8x8 transpose kernel) must beat NONE, and at d=128 must not be much slower
+ * (at least 0.8x the speed of NONE).
  */
 
 #include <gtest/gtest.h>
@@ -155,6 +156,6 @@ TEST_F(SIMDPerfTest, L2sqrAutoVecDispatchWorks) {
     printf("fvec_inner_products_ny (d=128) Speedup: %.2fx\n", speedup);
 
     EXPECT_GT(speedup, 0.8)
-            << "AVX2 code should not be significantly slower than SSE4. "
+            << "AVX2 code should not be significantly slower than NONE. "
             << "NONE=" << none_time << "ms, AVX2=" << avx2_time << "ms";
 }

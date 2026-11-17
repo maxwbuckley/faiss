@@ -31,8 +31,9 @@ namespace faiss {
 using namespace simd_result_handlers;
 
 /*
- * Unified kernel: selects 256-bit vs 512-bit path based on
- * compile-time COMPILE_SIMD_AVX512 && __AVX512F__ guard.
+ * Unified kernel: takes the 512-bit path when this translation unit is
+ * compiled for AVX-512 (FAISS_SIMD_TU(AVX512)) and KernelSL is an AVX-512
+ * level, and the 256-bit path otherwise.
  *
  * KernelSL selects the SIMD type width used for the inner accumulation
  * loop.  In DD mode the caller passes the dispatch level so the kernel

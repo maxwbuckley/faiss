@@ -10,9 +10,10 @@
 
 // AVX512 HammingComputer and GenHammingComputer specializations.
 // Types without custom AVX512 code inherit from the NONE specializations
-// in hamming_computer-generic.h. HammingComputer64 and
-// HammingComputerDefault use scalar popcount here; the VPOPCNTDQ fast
-// path lives in hamming_computer-avx512_vpopcnt.h (AVX512_VPOPCNT level).
+// in hamming_computer-generic.h. HammingComputer64 uses scalar popcount
+// here and HammingComputerDefault a vpshufb nibble-table popcount; the
+// VPOPCNTDQ fast path lives in hamming_computer-avx512_vpopcnt.h
+// (AVX512_VPOPCNT level).
 // GenHammingComputer classes leverage SSE/AVX2 intrinsics.
 
 #include <cassert>

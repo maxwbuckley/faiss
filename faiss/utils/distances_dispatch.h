@@ -13,10 +13,11 @@
  *
  * This is a PRIVATE header. Do not include in public APIs or user code.
  *
- * These wrappers call with_simd_level to route to the correct SIMD
- * implementation. They are plain inline functions with a _dispatch suffix
- * (e.g. fvec_L2sqr_dispatch). Internal callers that want inlining include
- * this header and call the _dispatch variants directly.
+ * These wrappers call with_selected_simd_levels, with an explicit mask of
+ * levels, to route to the correct SIMD implementation. They are plain inline
+ * functions with a _dispatch suffix (e.g. fvec_L2sqr_dispatch). Internal
+ * callers that want inlining include this header and call the _dispatch
+ * variants directly.
  *
  * The public API functions (fvec_L2sqr, etc.) are defined as regular extern
  * functions in distances.cpp and simply delegate to these _dispatch variants.

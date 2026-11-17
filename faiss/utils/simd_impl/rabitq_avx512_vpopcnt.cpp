@@ -107,8 +107,9 @@ inline __m512i popcount_512_vpopcntdq(__m512i v) {
 }
 
 // 256-bit popcount using AVX-512VL VPOPCNTDQ.
-// Baseline AVX-512 includes AVX512VL, so VPOPCNTDQ is also available on
-// 256-bit registers via _mm256_popcnt_epi64.
+// _mm256_popcnt_epi64 needs AVX512_VPOPCNTDQ together with AVX512VL. VL is
+// part of the AVX-512 baseline; VPOPCNTDQ is not, and comes from this
+// file's -mavx512vpopcntdq flag (see the header comment).
 inline __m256i popcount_256_vpopcntdq(__m256i v) {
     return _mm256_popcnt_epi64(v);
 }

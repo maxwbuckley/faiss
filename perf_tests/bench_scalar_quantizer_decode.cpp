@@ -17,7 +17,7 @@
 
 using namespace faiss;
 DEFINE_uint32(d, 128, "dimension");
-DEFINE_uint32(n, 2000, "dimension");
+DEFINE_uint32(n, 2000, "number of vectors");
 DEFINE_uint32(iterations, 20, "iterations");
 
 static void bench_decode(

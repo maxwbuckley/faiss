@@ -64,8 +64,6 @@ int main() {
            nb);
 
     // the coarse quantizer should not be deallocated before the index
-    // 4 = nb of bytes per code (d must be a multiple of this)
-    // 8 = nb of bits per sub-code (almost always 8)
     faiss::MetricType metric = faiss::METRIC_L2; // can be METRIC_INNER_PRODUCT
     faiss::IndexIVFFlat index(&coarse_quantizer, d, ncentroids, metric);
     index.quantizer_trains_alone = true;
