@@ -170,7 +170,7 @@ int main() {
     //
     //   faiss::idx_t *centroid_ids = new faiss::idx_t[k];
     //   float *distances = new float[k];
-    //   index.quantizer->search (1, x, k, dis, centroids_ids);
+    //   index.quantizer->search (1, x, k, distances, centroid_ids);
     //
 
     faiss::write_index(&index, "/tmp/populated_index.faissindex");

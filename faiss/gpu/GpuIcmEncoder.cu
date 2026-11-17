@@ -46,7 +46,8 @@ struct IcmEncoderShards {
 
         for (int i = 0; i < v.size(); ++i) {
             auto& fut = v[i];
-            fut.get(); // no exception handle, crash if any thread down
+            fut.get(); // rethrows a worker's exception, without waiting for
+                       // the remaining futures
         }
     }
 

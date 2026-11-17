@@ -39,7 +39,7 @@ print(I[-5:])  # neighbors of the 5 last queries
 nlist = 100
 quantizer = faiss.IndexFlatL2(d)  # the other index
 index_ivf = faiss.IndexIVFFlat(quantizer, d, nlist, faiss.METRIC_L2)
-# here we specify METRIC_L2, by default it performs inner-product search
+# here we specify METRIC_L2 explicitly; it is also the default
 
 # make it an IVF GPU index
 gpu_index_ivf = faiss.index_cpu_to_gpu(res, 0, index_ivf)

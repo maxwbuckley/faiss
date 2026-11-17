@@ -83,9 +83,6 @@ class GpuIndexIVFPQ : public GpuIndexIVF {
 
     ~GpuIndexIVFPQ() override;
 
-    /// Reserve space on the GPU for the inverted lists for `num`
-    /// vectors, assumed equally distributed among
-
     /// Initialize ourselves from the given CPU index; will overwrite
     /// all data in ourselves
     void copyFrom(const faiss::IndexIVFPQ* index);

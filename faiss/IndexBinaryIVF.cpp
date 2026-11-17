@@ -236,7 +236,7 @@ void IndexBinaryIVF::search_and_reconstruct(
             idx_t key = labels[ij];
             uint8_t* reconstructed = recons + ij * code_size;
             if (key < 0) {
-                // Fill with NaNs
+                // Fill with all-ones bytes (binary codes have no NaN)
                 memset(reconstructed, -1, code_size);
             } else {
                 int list_no = key >> 32;

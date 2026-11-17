@@ -49,7 +49,7 @@ struct IcmEncoderImpl {
      * @param n         number of input vectors
      */
     void computeUnaryTerms(
-            float* bterm,
+            float* uterm,
             const float* x,
             const float* codebooks,
             int n) const;

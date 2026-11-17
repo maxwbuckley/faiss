@@ -14,7 +14,7 @@ from typing import List, Callable, Dict
 import submitit
 
 
-def join_lists_in_dict(poss: List[str]) -> List[str]:
+def join_lists_in_dict(poss: Dict[str, List[str]]) -> List[str]:
     """
     Joins two lists of prod and non-prod values, checking if the prod value is
     already included.

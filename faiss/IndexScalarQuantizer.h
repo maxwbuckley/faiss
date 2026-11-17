@@ -57,12 +57,6 @@ struct IndexScalarQuantizer : IndexFlatCodes {
     void sa_decode(idx_t n, const uint8_t* bytes, float* x) const override;
 };
 
-/** An IVF implementation where the components of the residuals are
- * encoded with a scalar quantizer. All distance computations
- * are asymmetric, so the encoded vectors are decoded and approximate
- * distances are computed.
- */
-
 /// Search parameters for TurboQuant full types (QT_*_tq).
 struct IVFSQTurboQSearchParameters : IVFSearchParameters {
     /// Query quantization bits for integer MSE pre-screening.
@@ -73,6 +67,11 @@ struct IVFSQTurboQSearchParameters : IVFSearchParameters {
     bool int_qjl = false;
 };
 
+/** An IVF implementation where the components of the residuals are
+ * encoded with a scalar quantizer. All distance computations
+ * are asymmetric, so the encoded vectors are decoded and approximate
+ * distances are computed.
+ */
 struct IndexIVFScalarQuantizer : IndexIVF {
     ScalarQuantizer sq;
 

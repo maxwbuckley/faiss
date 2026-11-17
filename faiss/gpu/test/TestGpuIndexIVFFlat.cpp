@@ -924,7 +924,7 @@ TEST(TestGpuIndexIVFFlat, LongIVFList) {
             numQuery,
             dim,
             k,
-            "Unified Memory",
+            "LongIVFList",
             kF32MaxRelErr,
             0.1f,
             0.015f);
@@ -944,7 +944,7 @@ TEST(TestGpuIndexIVFFlat, LongIVFList) {
             numQuery,
             dim,
             k,
-            "Unified Memory",
+            "LongIVFList",
             kF32MaxRelErr,
             0.1f,
             0.015f);

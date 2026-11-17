@@ -80,7 +80,7 @@ std::streamsize ReaderStreambuf::xsgetn(char* s, std::streamsize n) {
     }
     size_t nbytes = n;
 
-    // Per-read byte limit: reject individual reads that exceed the limit,
+    // Per-read byte limit: reject individual reads that reach the limit,
     // matching READVECTOR semantics where each vector allocation is
     // independently checked against deserialization_vector_byte_limit.
     if (per_read_byte_limit > 0 && nbytes >= per_read_byte_limit) {

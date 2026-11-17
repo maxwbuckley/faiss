@@ -128,7 +128,7 @@ TEST(TestGpuIndexBinaryFlat, LargeIndex) {
     constexpr size_t kMem = size_t(8) * 1024 * 1024 * 1024;
 
     if (faiss::gpu::getFreeMemory(device) < kMem) {
-        std::cerr << "TestGpuIndexFlat.LargeIndex: skipping due "
+        std::cerr << "TestGpuIndexBinaryFlat.LargeIndex: skipping due "
                      "to insufficient device memory\n";
         return;
     }

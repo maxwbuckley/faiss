@@ -19,8 +19,8 @@ namespace {
 /// Templated AVX2 implementation of "pop best" for both CMax (returns
 /// the smallest distance) and CMin (returns the largest similarity).
 /// The only differences between the two flavors are: (1) the initial
-/// "worst possible" value, (2) the running-best update comparison
-/// (`_CMP_LT_OS` vs `_CMP_GT_OS`), and (3) the tiebreaker direction.
+/// "worst possible" value and (2) the running-best update comparison
+/// (`_CMP_LT_OS` vs `_CMP_GT_OS`). In both, ties go to the rightmost index.
 template <class HC>
 int pop_best_avx2(MinimaxHeapT<HC>& heap, float* vmin_out) {
     using storage_idx_t = typename MinimaxHeapT<HC>::storage_idx_t;

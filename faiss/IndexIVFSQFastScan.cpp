@@ -234,7 +234,8 @@ void IndexIVFSQFastScan::encode_vectors(
     } else if (is_native_4bit(sq.qtype)) {
         sq.compute_codes(to_encode, codes_out, n);
     } else {
-        // add_core keeps the leftover bits in lo_codes_invlists.
+        // Only the top 4 bits are returned; the low bits are discarded here.
+        // add_with_ids recomputes them and stores them in lo_codes_invlists.
         std::vector<uint8_t> lo_scratch(size_t(n) * lo_code_size());
         float_to_split_codes(
                 to_encode, codes_out, lo_scratch.data(), n, d, M2, sq);

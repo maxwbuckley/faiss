@@ -321,7 +321,7 @@ void kernel_accumulate_block_avx512_nqx(
     const int nsq_minus_nscale = nsq - scaler.nscale;
     const int nsq_minus_nscale_4 = (nsq_minus_nscale / 4) * 4;
 
-    // process in chunks of 8
+    // process in chunks of 4
     for (int sq = 0; sq < nsq_minus_nscale_4; sq += 4) {
         // prefetch
         simd64uint8 c(codes);

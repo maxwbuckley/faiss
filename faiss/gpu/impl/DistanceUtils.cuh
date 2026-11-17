@@ -415,8 +415,7 @@ inline void chooseTileSize(
 
     targetUsage /= 2 * elementSize;
 
-    // 512 seems to be a batch size sweetspot for float32.
-    // If we are on float16, increase to 512.
+    // 512 seems to be a batch size sweetspot, for float32 and float16.
     // If the k size (vec dim) of the matrix multiplication is small (<= 32),
     // increase to 1024.
     idx_t preferredTileRows = 512;
